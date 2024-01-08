@@ -1,1 +1,1 @@
-from gameLogic.game import Game, Player, Message, Move
+from gameLogic.game import Game, Response, Player, Move
