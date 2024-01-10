@@ -30,7 +30,7 @@ class Game:
             print(draw[box], end = ' ')
             if i % 3 == 2: print()
 
-    def Play(self, index: int) -> dict:
+    def Play(self, index: int) -> Response:
         if index < 0 or index > 8 or self.board[index] != 0 or self.gameOver:
             return {"message":Response.INVALID_INPUT}
 
