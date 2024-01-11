@@ -59,7 +59,7 @@ class Game:
         if not board : board = self.board
         wins =[{0,3,6},{1,4,7},{2,5,8},{0,1,2},{3,4,5},{6,7,8},{0,4,8},{2,4,6}]
         taken = {i for i,x in enumerate(board) if x == player}
-        return [win for win in wins if win.issubset(taken)]
+        return [list(win) for win in wins if win.issubset(taken)]
 
     def _tieCheck(self) -> bool:
         return 0 not in self.board
@@ -97,6 +97,7 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     while not game.gameOver:
-        game.autoPlay()
+        response = game.autoPlay()
         game.printBoard()
+        print(response)
         print()
