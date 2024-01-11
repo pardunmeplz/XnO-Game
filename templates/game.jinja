@@ -8,7 +8,7 @@
 
 <body>
     <div class = "screen">
-        <h2>{{player}} playing . . .</h2>
+        <h2>{{state["player"]}} playing . . .</h2>
         <div class="board">
             {% for i in range(3)%}
             <div>
@@ -19,7 +19,7 @@
             {% endfor %}
             <button id=-1 class="Reset" style="align-self: center;">Reset</button>
         </div>
-        <script>updateBoard({{board}})</script>
+        <script>updateBoard({{state}})</script>
         <h4 id="prompt">{{ message }}</h4>
 
         
