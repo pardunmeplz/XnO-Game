@@ -1,4 +1,4 @@
-function updateBoard(board)
+function updateBoard({board,player,gameOver,winnningLine})
 {
     board.forEach((x, i) => {
         button = document.getElementById(i)
@@ -17,6 +17,19 @@ function updateBoard(board)
         }
 
     });
+
+    if (!gameOver){
+        return
+    }
+
+    if(winnningLine == [])
+    {
+        return
+    }
+
+    console.log(winnningLine)
+
+
 }
 
 async function playMove(id){
@@ -26,7 +39,7 @@ async function playMove(id){
 
 async function buttonPress(id){
     response = await playMove(id)
-    updateBoard(response.board)
+    updateBoard(response)
 
 }
 
