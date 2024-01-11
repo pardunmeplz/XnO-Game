@@ -9,14 +9,17 @@ def screen():
     if not game:
         return redirect(url_for("homePage"))
     
+    response = None
     if request.method == "POST":
-        game.Play(request.json['index'])
+        response = game.Play(request.json['index'])
+
 
     state = game.state()
     state['board'] = [i if x==0 else x.value for i,x in enumerate(state['board'])]
     state['player'] = state['player'].value
+    state['gameOver'] = 1 if state['gameOver'] else 0 # Jinja has trouble with False in python vs false in javascript
 
     if request.method == "GET":
-        return render_template("game.jinja",message = "Play Game!", board = state["board"], player = state["player"])
+        return render_template("game.jinja",message = "Play Game!", state = state)
     
     return jsonify(state) , 200
