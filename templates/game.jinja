@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<head>
+    <title>XnO Engine</title>
+    <link rel="stylesheet" href="{{url_for('static',filename= 'css/game.css')}}">
+    <script src="{{url_for('static',filename='javascript/game.js')}}"></script>
+</head>
+
+<body>
+    <div class = "screen">
+        <h2>{{player}} playing . . .</h2>
+        <div class="board">
+            {% for i in range(3)%}
+            <div>
+                {% for j in range(3) %}
+                <button id= {{3*i + j}} onclick="buttonPress({{3*i + j}})"></button>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button id=-1 class="Reset" style="align-self: center;">Reset</button>
+        </div>
+        <script>updateBoard({{board}})</script>
+        <h4 id="prompt">{{ message }}</h4>
+
+        
+    </div>
+</body>

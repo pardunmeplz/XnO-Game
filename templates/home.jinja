@@ -11,8 +11,9 @@
     </div>
 
     <div class ="card">
+        <script>validate = () => document.forms["nameCard"]["nm"].strip() != ""</script>
         <form action="#" method="post" name="nameCard"
-        style="display: flex; flex-direction: column; text-align: center;">
+        style="display: flex; flex-direction: column; text-align: center;" onsubmit = "return validate()">
             <h3>Enter Name</h3>
             <input class = "text" type="text" name="nm"/>
             <input class = "button" type ="submit" value="Start"/>
