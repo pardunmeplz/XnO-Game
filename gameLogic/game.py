@@ -2,8 +2,8 @@ from enum import Enum
 from functools import lru_cache
 
 class Player(Enum):
-    X = 1
-    O = -1
+    X = 'X'
+    O = 'O'
 
 class Response(Enum):
     ONGOING = 0
